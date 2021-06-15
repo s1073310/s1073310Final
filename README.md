@@ -5,3 +5,5 @@
  首先需要和Google申請一組YouTube Data API v3的API Key, 在之後提出的Requests都需要用到. 還需要自己Youtube的ChannelID可以在, 設定->查看進階設定裡看自己的ChannelID
  
  實作的方法是傳Request給Youtube並從回傳的內容取得自己的PlaylistID, 並從Playlist裡找到每一個影片的videoID, 有了videoID就可以知道影片的連結, 再用pytube套件的功能下載影片
+ 
+ ## 二. 
