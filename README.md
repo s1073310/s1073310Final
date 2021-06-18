@@ -11,5 +11,5 @@
  
  回傳後, 需要轉成json格式才能使用, 接著要從撥放清單內找到finalProject這個撥放清單, 用迴圈從頭到尾找到title為finalProject的清單, 並回傳該清單的playlistID.
  
- 接著要從清單內找出vedio的videoID, YouTube影片網址都是由https://www.youtube.com/watch?v= + videoID 所組成, 這次的Request需要用到剛剛找到的playlistID
- 來找清單裡的videoID, 找到後先存在list裡
+ 接著要從清單內找出vedio的videoID, 這次的Request需要用到剛剛找到的playlistID來找清單裡的videoID, 找到後先存在list裡. YouTube影片網址都是由https://www.youtube.com/watch?v= + videoID 
+ 所組成, 所以用videoID就可以找到原始上傳影片的網站, 提出Request得到影片channelID和title等資訊, 接著用pytube下載影片就完成
