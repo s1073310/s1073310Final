@@ -9,8 +9,15 @@
  ## 二. 
  向YouTube提出Request的網址都是由https://www.googleapis.com/youtube/v3/ + 要搜尋的部分 + API Key組成, 一開始需要自己的channelId, 提出Request後, 回傳的結果如下:
  ![image](https://user-images.githubusercontent.com/85933578/122627509-835c9080-d0e2-11eb-902e-49399830a801.png)
-
- 回傳後, 需要轉成json格式才能使用, 接著要從撥放清單內找到finalProject這個撥放清單, 用迴圈從頭到尾找到title為finalProject的清單, 並回傳該清單的playlistID.
- 
- 接著要從清單內找出vedio的videoID, 這次的Request需要用到剛剛找到的playlistID來找清單裡的videoID, 找到後先存在list裡. YouTube影片網址都是由https://www.youtube.com/watch?v= + videoID 
- 所組成, 所以用videoID就可以找到原始上傳影片的網站, 提出Request得到影片channelID和title等資訊, 接著用pytube下載影片就完成
+ totalResults = 清單的數量
+ ![image](https://user-images.githubusercontent.com/85933578/122627991-e56ac500-d0e5-11eb-8c3a-eaba9e155910.png)
+ 回傳後, 先檢查Request是否有問題, 再轉成json格式使用, 用迴圈從頭到尾找到title為finalProject的清單, 並回傳該清單的playlistID.
+ 接著要從清單內找出vedio的videoID, 這次的Request需要用到剛剛找到的playlistID來找清單裡的videoID 
+ ![image](https://user-images.githubusercontent.com/85933578/122628036-3ed2f400-d0e6-11eb-906a-891096c608de.png)
+ 回傳的內容
+ ![image](https://user-images.githubusercontent.com/85933578/122627775-51e4c480-d0e4-11eb-8b1c-c728fbe35740.png)
+ 找到videoID後先存在list裡.
+ ![image](https://user-images.githubusercontent.com/85933578/122628084-a2f5b800-d0e6-11eb-9a7d-1e66d9db940f.png)
+ 因為YouTube影片網址都是由https://www.youtube.com/watch?v= + videoID 
+ 所組成, 所以用videoID就可以找到原始上傳影片的網頁, 並對
+ 提出Request得到影片channelID和title等資訊, 接著用pytube下載影片就完成
