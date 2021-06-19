@@ -7,8 +7,9 @@
  實作的方法是傳Request給Youtube並從回傳的內容取得自己的PlaylistID, 並從Playlist裡找到每一個影片的videoID, 有了videoID就可以知道影片的連結, 再用pytube套件的功能下載影片
  
  ## 二. 
- 向YouTube提出Request的網址都是由https://www.googleapis.com/youtube/v3/ + 要搜尋的細節 + API Key組成, 一開始需要自己的channelId, 提出Request後, 回傳的結果如下:
- 
+ 向YouTube提出Request的網址都是由https://www.googleapis.com/youtube/v3/ + 要搜尋的部分 + API Key組成, 一開始需要自己的channelId, 提出Request後, 回傳的結果如下:
+ ![image](https://user-images.githubusercontent.com/85933578/122627509-835c9080-d0e2-11eb-902e-49399830a801.png)
+
  回傳後, 需要轉成json格式才能使用, 接著要從撥放清單內找到finalProject這個撥放清單, 用迴圈從頭到尾找到title為finalProject的清單, 並回傳該清單的playlistID.
  
  接著要從清單內找出vedio的videoID, 這次的Request需要用到剛剛找到的playlistID來找清單裡的videoID, 找到後先存在list裡. YouTube影片網址都是由https://www.youtube.com/watch?v= + videoID 
