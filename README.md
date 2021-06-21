@@ -3,13 +3,13 @@
  會寫這個程式的動機是因為實習的公司沒有提供Wi-Fi, 所以用手機聽音樂會耗費自己的流量, 因此在電腦上把想聽的音樂先下載下來並存在手機, 就可以聽喜歡的歌, 也不會耗費手機的流量了.
  
  首先需要和Google申請一組YouTube Data API v3的API Key, 在之後提出的每一次Requests都需要用到. 還需要自己Youtube的ChannelID, 可以在YoutTube->設定->查看進階設定裡看自己的ChannelID
- 
- 實作的方法是傳Request給Youtube並從回傳的內容取得自己的PlaylistID, 並從Playlist裡找到每一個影片的videoID, 有了videoID就可以知道影片的連結, 再用Pytube下載影片
+ 還需要使用Pytube套件來下載音樂或影片. 方法是傳Request給Youtube並從回傳的內容取得自己的PlaylistID, 並從Playlist裡找到每一個影片的videoID, 有了videoID就可以知道影片的連結, 
+ 再用Pytube下載影片.
  
  ## 二. 詳細步驟
  向YouTube提出Request的網址都是由https://www.googleapis.com/youtube/v3/ + 要搜尋的部分 + API Key組成, 一開始需要自己的channelId, 提出Request後, 回傳的結果如下: totalResults = 清單的數量
  ![image](https://user-images.githubusercontent.com/85933578/122627509-835c9080-d0e2-11eb-902e-49399830a801.png)
- part = 'snippet'代表YouTube API會回傳網頁的所有資料的屬性
+ part = 'snippet'代表YouTube API會回傳網頁的所有屬性的資料
  ![image](https://user-images.githubusercontent.com/85933578/122627991-e56ac500-d0e5-11eb-8c3a-eaba9e155910.png)
  先檢查Request是否有問題, 再轉成json格式使用, 用迴圈從頭到尾找到title為finalProject的清單, 並回傳該清單的playlistID.
  接著要從清單內找出vedio的videoID, 這次的Request需要用到剛剛找到的playlistID來找清單裡的videoID 
@@ -45,13 +45,12 @@
  執行的結果, 在資料夾內可以找到下載的影片
  ![image](https://user-images.githubusercontent.com/85933578/122644001-64dbb100-d145-11eb-859e-cc981a59ebfa.png)
  
-  ## 四. 參考資料
+  ## 四. References
   
  https://developers.google.com/youtube/v3/docs
  
  https://pytube.io/en/latest/
 
-https://blog.jiatool.com/posts/youtube_spider_api/
 
 
 
