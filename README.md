@@ -162,7 +162,7 @@
   }
 }
 ```
-把contentDetails底下的videoID先存進list裡, 並檢查playlist是不是空的
+先檢查playlist是不是空的, 再把contentDetails底下的videoID先存進list裡
 ```python
 def get_video_id():
 
