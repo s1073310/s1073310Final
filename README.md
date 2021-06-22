@@ -22,16 +22,10 @@
     part = 'snippet'
     url = key_url + 'playlists?part=' + part + '&channelId=' + channel_id + '&key=' + api_key
     r = requests.get(url)
-
-    # Check request success or fail
-    if r.status_code != requests.codes.ok:
-        print('Request playlist_id Fail!')
-        return 1
-    # print(r.text)
  ```
     
 
- 提出Request後, 開頭回傳的格式如下, totalResults代表會有3個撥放清單, 會接在後面
+ 提出Request後, 開頭回傳的格式如下, totalResults代表有3個撥放清單, 會接在後面
  ```
  {
   "kind": "youtube#playlistListResponse",
@@ -93,6 +87,11 @@
  
  先檢查Request是否有問題, 再轉成json格式使用, 用迴圈從頭到尾找到title為finalProject的清單, 並回傳該清單的playlistID.
  ```python
+  # Check request success or fail
+    if r.status_code != requests.codes.ok:
+        print('Request playlist_id Fail!')
+        return 1
+    # print(r.text)
     data = r.json()
     # print(data)
     length = int(data['pageInfo']['totalResults'])
