@@ -177,8 +177,19 @@ def get_video_id():
 ```
  因為YouTube影片網址都是由https://www.youtube.com/watch?v= + videoID 所組成, \
  所以用videoID就可以找到原始上傳影片的網頁. \
- 提出Request得到影片channelID和title等資訊, 並列印在終端機上, \
- 並用pytube下載由於只下載音樂所以在fileter()內加上only_audio=True, 在download()內加上下載的路徑
+ 提出Request得到影片channelID和title等資訊, 會存在items的snippet底下
+```
+"items": [
+    {
+      "kind": "youtube#video",
+      "etag": "6RgV8Gc8_8moFxkFgGQnj79OGJ0",
+      "id": "g4_nRpHotMo",
+      "snippet": {
+        "publishedAt": "2019-11-15T09:00:14Z",
+        "channelId": "UCkB8HnJSDSJ2hkLQFUc-YrQ",
+        "title": "King Gnu - 傘  OFFICIAL AUDIO",
+```
+ 並用pytube下載, 由於只下載音樂所以在fileter()內加上only_audio=True, 在download()內加上下載的路徑
 ```python
 def download_video():
 
